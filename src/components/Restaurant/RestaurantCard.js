@@ -6,9 +6,9 @@ const RestaurantCard = (props) => {
 
     return (
         <div className="card">
-            <img className="cusine_logo" width="250px" height="200px" alt="cusine logo" src={imageSrc}/>
+            <img className="cusine_logo" alt="cusine logo" src={imageSrc}/>
             <h3>{name}</h3>
-            <h5>{cuisines?.join(",")}</h5>
+            <h4>{cuisines?.join(",")}</h4>
             <h5>{avgRatingString}</h5>
             <h5>{costForTwo}</h5>
         </div>
