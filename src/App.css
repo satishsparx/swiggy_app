@@ -1,0 +1,68 @@
+.header_logo {
+    width: 150px
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid black
+}
+
+.list {
+    display: flex;
+    list-style-type: none;
+    margin-right: 100px;
+
+}
+
+.list > li {
+    padding: 10px;
+    font-size: 24px;
+}
+
+.card {
+    border: 1px solid black;
+    width: 220px;
+    height: 320px;
+    margin: 10px;
+}
+
+.search_container{
+    margin: 10px
+}
+
+.filter-res{
+    margin: 10px
+}
+
+.cusine_logo {
+    padding: 4px;
+    width: 100%
+    /* width: 200px; */
+}
+
+.res_card {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* .res_container {
+    width: 100%
+} */
+
+.shimmer-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.shimmer-card {
+    margin: 10px;
+    width: 220px;
+    height: 320px;
+    border: 1px solid grey;
+    background-color: #f0f0f0;  
+}
+
+.filter-search {
+    display: flex;
+}
