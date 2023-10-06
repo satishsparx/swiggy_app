@@ -28,12 +28,11 @@
     padding: 2px;
 }
 
-.search_container{
-    margin: 10px
-}
 
-.filter-res{
-    margin: 10px
+
+.card:hover {
+    cursor: pointer;
+    border : 1px solid blueviolet;
 }
 
 .cusine_logo {
@@ -53,6 +52,15 @@
 .shimmer-container {
     display: flex;
     flex-wrap: wrap;
+}
+
+.filter-container{
+    display: flex;
+    margin: 10px;
+}
+
+.search_res {
+    margin-right: 10px
 }
 
 .shimmer-card {

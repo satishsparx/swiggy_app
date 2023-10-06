@@ -9,8 +9,8 @@ const RestaurantCard = (props) => {
             <img className="cusine_logo" alt="cusine logo" src={imageSrc}/>
             <h3>{name}</h3>
             <h4>{cuisines?.join(",")}</h4>
-            <h5>{avgRatingString}</h5>
-            <h5>{costForTwo}</h5>
+            <h3>{avgRatingString}</h3>
+            <h4>{costForTwo}</h4>
         </div>
     )
 }
