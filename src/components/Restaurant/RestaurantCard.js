@@ -1,4 +1,6 @@
+import {useParams} from 'react-router-dom'
 const RestaurantCard = (props) => {
+    
     const {cloudinaryImageId, name, cuisines, avgRatingString, costForTwo
     } = props?.resData?.info
     
