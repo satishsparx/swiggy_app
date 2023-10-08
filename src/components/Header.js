@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom'
+import { LOGO_URL } from '../utils/constants'
+
 const Header = () => {
     return (
         <div className="header">
-            <img className="header_logo" alt="logo" src="https://cdn.dribbble.com/users/1635051/screenshots/4291569/socio_curry_logo-01.png" />
+            <img className="header_logo" alt="logo" src={LOGO_URL} />
             <ul className="list">
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/about">About</Link></li>

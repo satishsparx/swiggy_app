@@ -1,10 +1,10 @@
-import {useParams} from 'react-router-dom'
+import { CARD_URL } from "../../utils/constants" 
 const RestaurantCard = (props) => {
     
     const {cloudinaryImageId, name, cuisines, avgRatingString, costForTwo
     } = props?.resData?.info
     
-    const imageSrc = `https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${cloudinaryImageId}`
+    const imageSrc = `${CARD_URL}${cloudinaryImageId}`
 
     return (
         <div className="card">

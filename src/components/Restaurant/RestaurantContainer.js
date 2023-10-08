@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import { Link } from 'react-router-dom'
+import { CDN_URL } from "../../utils/constants" 
 import RestaurantCard from "./RestaurantCard"
 import Shimmer from "../Shimmer"
 
@@ -9,7 +10,7 @@ const RestaurantContainer = () => {
     const [searchText, setSearchText] = useState("") 
 
     const fetchData = async() => {
-        const data = await fetch('https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.492774840521797&lng=78.38635582476854&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING')
+        const data = await fetch(CDN_URL)
         const resData = await data.json()
         const cards = resData?.data?.cards
         const restaurants = cards?.filter(cardVal => cardVal?.card?.card?.gridElements?.infoWithStyle.hasOwnProperty('restaurants'))
@@ -26,8 +27,7 @@ const RestaurantContainer = () => {
         fetchData()
     },[])
 
-    console.log("Hello world")
-    console.log(restaurants)
+
 
     return (
         <div className="res_container">
