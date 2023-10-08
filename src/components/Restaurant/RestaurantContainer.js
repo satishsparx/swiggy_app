@@ -27,21 +27,19 @@ const RestaurantContainer = () => {
         fetchData()
     },[])
 
-
-
     return (
         <div className="res_container">
-            <div className="filter-container">
-                <div className="search_res">
-                    <input type="search" placeholder="Search restaurants" onChange={(e) => {
+            <div className="flex items-center">
+                <div className="m-4 p-4">
+                    <input type="search" placeholder="Search" onChange={(e) => {
                         setSearchText(e.target.value)
-                    }} />
-                    <button onClick={() => {
+                    }} className="border border-solid border-black"/>
+                    <button className="px-4 m-4 rounded-sm bg-blue-200" onClick={() => {
                        const searchResults = restaurants.filter(res => res.info.name.toLowerCase().includes(searchText.toLowerCase()))
                         setFilterRes(searchResults)
                     }}>Search</button>
                 </div>
-                <div className="filter-search">
+                <div className="px-4 rounded-sm bg-blue-200">
                     <button className="filter-btn" onClick={() => {
                         const filteredRestaurants = restaurants.filter((res)=> res.info.avgRating >= 4.5)
                         setFilterRes(filteredRestaurants)
@@ -52,7 +50,7 @@ const RestaurantContainer = () => {
         
 
             {restaurants.length === 0? (<Shimmer />): (            
-            <div className="res_card">
+            <div className="flex flex-wrap">
                 {filterRes?.map(res => {
                     return (<Link to={`/resmenu/${res.info.id}`}><RestaurantCard resData={res}/></Link>)
                 })}
