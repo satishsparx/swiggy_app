@@ -1,13 +1,15 @@
 import { useState, useEffect } from "react"
 import { Link } from 'react-router-dom'
 import { CDN_URL } from "../../utils/constants" 
-import RestaurantCard from "./RestaurantCard"
+import RestaurantCard, { withVegLabel } from "./RestaurantCard"
 import Shimmer from "../Shimmer"
 
 const RestaurantContainer = () => {
     const [restaurants, setRestaurants] = useState([])
     const [filterRes, setFilterRes] = useState([]) 
     const [searchText, setSearchText] = useState("") 
+
+    const VegRestaurantCard = withVegLabel(RestaurantCard)
 
     const fetchData = async() => {
         const data = await fetch(CDN_URL)
@@ -18,7 +20,6 @@ const RestaurantContainer = () => {
         restaurants?.forEach(rest => {
             mergeRes = [...mergeRes, ...rest?.card?.card?.gridElements?.infoWithStyle?.restaurants]
         })
-
         setRestaurants(mergeRes)
         setFilterRes(mergeRes)
     }
@@ -52,7 +53,11 @@ const RestaurantContainer = () => {
             {restaurants.length === 0? (<Shimmer />): (            
             <div className="flex flex-wrap">
                 {filterRes?.map(res => {
-                    return (<Link to={`/resmenu/${res.info.id}`}><RestaurantCard resData={res}/></Link>)
+                    return (<Link to={`/resmenu/${res.info.id}`}>
+                        {res?.info?.veg ? (<VegRestaurantCard resData={res}/>):
+                        (<RestaurantCard resData={res}/>)
+                        }
+                        </Link>)
                 })}
             </div>)}
         </div>

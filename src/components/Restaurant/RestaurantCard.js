@@ -1,6 +1,6 @@
 import { CARD_URL } from "../../utils/constants" 
+
 const RestaurantCard = (props) => {
-    
     const {cloudinaryImageId, name, cuisines, avgRatingString, costForTwo
     } = props?.resData?.info
     
@@ -15,6 +15,19 @@ const RestaurantCard = (props) => {
             <h4>{costForTwo}</h4>
         </div>
     )
+}
+
+// Higher order function which takes Component as argument 
+// and return another component
+export const withVegLabel = (RestaurantCard) => {
+    return (props) => {
+        return (
+            <>
+                <label className="absolute bg-green-500 text-white m-2 p-2 rounded-lg">Veg</label>
+                <RestaurantCard {...props} />
+            </>
+        )
+    }
 }
 
 export default RestaurantCard
