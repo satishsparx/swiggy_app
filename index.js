@@ -7,15 +7,18 @@ import RestaurantContainer from './src/components/Restaurant/RestaurantContainer
 import {createBrowserRouter,  RouterProvider, Outlet} from "react-router-dom"
 import './src/App.css'
 import RestaurantMenu from './src/components/RestaurantMenu'
+import UserContext from './src/utils/UserContext'
 
 const About = lazy(() => import("./src/components/About"))
 
 const App = () => {
     return (
-        <div id="app">
-            <Header />
-            <Outlet />
-        </div>
+        <UserContext.Provider value={{loggedInUser: "Swiggy user", country: "India"}}>
+            <div id="app">
+                <Header />
+                <Outlet />
+            </div>
+        </UserContext.Provider>
     )
 }
 
