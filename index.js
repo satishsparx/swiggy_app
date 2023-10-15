@@ -12,6 +12,7 @@ import { Provider } from 'react-redux'
 import appStore from './src/utils/store/appStore'
 
 const About = lazy(() => import("./src/components/About"))
+const Cart = lazy(() => import("./src/components/Cart"))
 
 const App = () => {
     return (
@@ -44,6 +45,10 @@ const appRoutes =  createBrowserRouter([
             {
                 path: "/contact",
                 element: <Contact />
+            },
+            {
+                path: "/cart",
+                element: <Suspense fallback={<h3>Loading...</h3>}><Cart /></Suspense>
             },
             {
                 path: '/resmenu/:resId',
